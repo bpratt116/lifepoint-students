@@ -29,19 +29,14 @@ footer{text-align:center;color:#888;font-size:13px;padding-bottom:30px}
 </main>
 <div id="ov"><div id="pl"></div></div>
 <footer>© LifePoint Church · Quincy, Illinois</footer>
-<script src="https://www.youtube.com/iframe_api"></script>
 <script>
-var V='lXMskKTw3Bc',player=null,apiReady=false;
-function onYouTubeIframeAPIReady(){apiReady=true;}
-function go(){location.href='https://www.youtube.com/watch?v='+V;}
 document.getElementById('f').addEventListener('submit',function(ev){ev.preventDefault();
 var n=document.getElementById('n').value.trim(),e=document.getElementById('e').value.trim();
 if(!n||e.indexOf('@')<1){document.getElementById('err').textContent='Please enter your name and a valid email.';return;}
-if(!apiReady){go();return;}
-document.getElementById('ov').className='on';
-player=new YT.Player('pl',{width:'100%',height:'100%',videoId:V,
- playerVars:{autoplay:1,playsinline:1,controls:1,rel:0,modestbranding:1},
- events:{onReady:function(e){e.target.unMute();e.target.playVideo();},
-         onError:function(){go();}}});
+var f=document.createElement('iframe');
+f.src='https://www.youtube-nocookie.com/embed/lXMskKTw3Bc?autoplay=1&playsinline=1&rel=0&modestbranding=1';
+f.allow='autoplay; encrypted-media; fullscreen; picture-in-picture';f.allowFullscreen=true;
+f.style.cssText='width:100%;height:100%;border:0';
+document.getElementById('pl').appendChild(f);document.getElementById('ov').className='on';
 });
 </script></body></html>
